@@ -38,3 +38,4 @@ def showLearningCurve(data: np.array, target:np.array, train_ratio: float=0.7):
     plt.legend()
     plt.ylim(40, 50)
     plt.show()
+# 这里是一个测试
