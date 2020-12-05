@@ -13,6 +13,7 @@ class GradientDescent:
         count = 0
         while True:
             next = tmp_res - self.DFun(tmp_res) * sep
+            # print(abs(self.getFunValue(next) - self.getFunValue(tmp_res)))
             if abs(self.getFunValue(next) - self.getFunValue(tmp_res)) < eps:
                 self.ans_ = next
                 break
