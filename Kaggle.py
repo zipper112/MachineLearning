@@ -62,20 +62,20 @@ def main():
         svc = SVC()
         kf = KFold(n_splits=4, random_state=666)
         parameters = [
-            # {'C': np.linspace(0.1, 2, 10),
-            # 'kernel': ['poly'],
-            # 'gamma': np.linspace(0.1, 2, 5),
-            # 'coef0': [0, 1, 2],
-            # 'degree': [2, 3, 4]},
-            {'C': np.linspace(0.1, 2, 30),
+            {'C': np.linspace(0.1, 2, 10),
+            'kernel': ['poly'],
+            'gamma': np.linspace(0.1, 2, 5),
+            'coef0': [0, 1, 2],
+            'degree': [2, 3, 4]},
+            {'C': np.linspace(0.1, 2, 10),
             'kernel': ['rbf'],
-            'gamma': np.linspace(0.01, 0.1, 30),
+            'gamma': np.linspace(0.01, 0.1, 15),
             'decision_function_shape': ['ovo']}
             ]
         model = GridSearchCV(svc, parameters, cv=kf, n_jobs=-1)
         model.fit(data, target)
         svc = model.best_estimator_
-        with open('model.tex', 'w') as stream:
+        with open('model.txt', 'w') as stream:
             stream.write(str(model.best_score_) + '\n')
             stream.write(str(model.best_estimator_.__str__()))
     except Exception as a:
