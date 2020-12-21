@@ -67,9 +67,9 @@ def main():
             # 'gamma': np.linspace(0.1, 2, 5),
             # 'coef0': [0, 1, 2],
             # 'degree': [2, 3, 4]},
-            {'C': np.linspace(0.1, 2, 5),
+            {'C': np.linspace(0.1, 2, 30),
             'kernel': ['rbf'],
-            'gamma': np.linspace(0.01, 0.1, 5),
+            'gamma': np.linspace(0.01, 0.1, 30),
             'decision_function_shape': ['ovo']}
             ]
         model = GridSearchCV(svc, parameters, cv=kf, n_jobs=-1)
