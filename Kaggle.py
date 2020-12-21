@@ -62,14 +62,14 @@ def main():
         svc = SVC()
         kf = KFold(n_splits=4, random_state=666)
         parameters = [
-            {'C': np.linspace(0.1, 2, 10),
-            'kernel': ['poly'],
-            'gamma': np.linspace(0.1, 2, 5),
-            'coef0': [0, 1, 2],
-            'degree': [2, 3, 4]},
-            {'C': np.linspace(0.1, 2, 10),
+            # {'C': np.linspace(0.1, 2, 10),
+            # 'kernel': ['poly'],
+            # 'gamma': np.linspace(0.1, 2, 5),
+            # 'coef0': [0, 1, 2],
+            # 'degree': [2, 3, 4]},
+            {'C': np.linspace(0.1, 2, 5),
             'kernel': ['rbf'],
-            'gamma': np.linspace(0.01, 0.1, 15),
+            'gamma': np.linspace(0.01, 0.1, 5),
             'decision_function_shape': ['ovo']}
             ]
         model = GridSearchCV(svc, parameters, cv=kf, n_jobs=-1)
